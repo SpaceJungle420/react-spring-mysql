@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import dto.CreateReservationRequest;
 import entities.Flight;
+import entities.Reservation;
 import repos.FlightRepository;
 
 @RestController
@@ -19,5 +21,9 @@ public class ReservationRestController {
     @RequestMapping(value = "/flights", method = RequestMethod.GET)
     public List<Flight> findFlights() {
         return flightRepository.findAll();
+    }
+
+    public Reservation saveReservation(CreateReservationRequest request) {
+        return null;
     }
 }
