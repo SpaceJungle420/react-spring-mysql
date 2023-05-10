@@ -1,18 +1,9 @@
 package entities;
 
-public class Reservation {
+public class Reservation extends AbstractEntity {
 
-    private int id;
     private boolean checkIn;
     private int numberOfBags;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public boolean isCheckIn() {
         return checkIn;

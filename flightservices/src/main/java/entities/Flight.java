@@ -3,23 +3,14 @@ package entities;
 import java.sql.Date;
 import java.sql.Timestamp;
 
-public class Flight {
+public class Flight extends AbstractEntity {
 
-    private int id;
     private String flightNumber;
     private String operatingAirlines;
     private String departureCity;
     private String arrivalCity;
     private Date dateOfDeparture;
     private Timestamp estimatedDepartureTime;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getFlightNumber() {
         return flightNumber;
