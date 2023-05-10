@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import dto.CreateReservationRequest;
+import dto.UpdateReservationRequest;
 import entities.Flight;
 import entities.Passenger;
 import entities.Reservation;
@@ -59,5 +60,14 @@ public class ReservationRestController {
     @RequestMapping(value = "/reservations/{id}")
     public Reservation findReservation(@PathVariable("id") int id) {
         return reservationRepository.findById(id).get();
+    }
+
+    @RequestMapping(value = "/reservations", method = RequestMethod.PUT)
+    public Reservation updateReservation(UpdateReservationRequest request) {
+        Reservation reservation = reservationRepository.findById(request.getId()).get();
+        reservation.setNumberOfBags(request.getNumberOfBags());
+        reservation.setCheckIn(request.isCheckIn());
+
+        return reservationRepository.save(reservation);
     }
 }
