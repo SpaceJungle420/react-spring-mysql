@@ -1,5 +1,8 @@
 package entities;
 
+import jakarta.persistence.Entity;
+
+@Entity
 public class Reservation extends AbstractEntity {
 
     private boolean checkIn;

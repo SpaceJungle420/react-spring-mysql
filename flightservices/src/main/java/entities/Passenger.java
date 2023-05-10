@@ -1,5 +1,8 @@
 package entities;
 
+import jakarta.persistence.Entity;
+
+@Entity
 public class Passenger extends AbstractEntity {
 
     private String firstName;

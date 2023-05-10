@@ -3,6 +3,9 @@ package entities;
 import java.sql.Date;
 import java.sql.Timestamp;
 
+import jakarta.persistence.Entity;
+
+@Entity
 public class Flight extends AbstractEntity {
 
     private String flightNumber;
