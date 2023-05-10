@@ -1,4 +1,4 @@
-package entities;
+package com.learning.flightservices.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToOne;

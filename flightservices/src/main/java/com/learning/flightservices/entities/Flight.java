@@ -1,4 +1,4 @@
-package entities;
+package com.learning.flightservices.entities;
 
 import java.sql.Date;
 import java.sql.Timestamp;

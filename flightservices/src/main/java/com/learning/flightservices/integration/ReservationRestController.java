@@ -1,4 +1,4 @@
-package integration;
+package com.learning.flightservices.integration;
 
 import java.util.List;
 
@@ -8,15 +8,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import dto.CreateReservationRequest;
-import dto.UpdateReservationRequest;
-import entities.Flight;
-import entities.Passenger;
-import entities.Reservation;
+import com.learning.flightservices.dto.CreateReservationRequest;
+import com.learning.flightservices.dto.UpdateReservationRequest;
+import com.learning.flightservices.entities.Flight;
+import com.learning.flightservices.entities.Passenger;
+import com.learning.flightservices.entities.Reservation;
 import jakarta.transaction.Transactional;
-import repos.FlightRepository;
-import repos.PassengerRepository;
-import repos.ReservationRepository;
+import com.learning.flightservices.repos.FlightRepository;
+import com.learning.flightservices.repos.PassengerRepository;
+import com.learning.flightservices.repos.ReservationRepository;
 
 @RestController
 public class ReservationRestController {
