@@ -1,11 +1,14 @@
 package com.learning.flightservices.integration;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.learning.flightservices.dto.CreateReservationRequest;
@@ -31,8 +34,11 @@ public class ReservationRestController {
     ReservationRepository reservationRepository;
 
     @RequestMapping(value = "/flights", method = RequestMethod.GET)
-    public List<Flight> findFlights() {
-        return flightRepository.findAll();
+    public List<Flight> findFlights(
+            @RequestParam("from") String from,
+            @RequestParam("to") String to,
+            @RequestParam("departureCity") @DateTimeFormat(pattern = "MM-dd-yyyy") Date departureCity) {
+        return flightRepository.findFlights(from, to, departureCity);
     }
 
     @RequestMapping(value = "/reservations", method = RequestMethod.POST)
