@@ -34,6 +34,11 @@ public class ReservationRestController {
     @Autowired
     ReservationRepository reservationRepository;
 
+    @RequestMapping(value = "/all-flights", method = RequestMethod.GET)
+    public List<Flight> findFlights() {
+        return flightRepository.findAll();
+    }
+
     @RequestMapping(value = "/flights", method = RequestMethod.GET)
     public List<Flight> findFlights(
             @RequestParam("from") String from,
@@ -46,11 +51,6 @@ public class ReservationRestController {
     public Flight findFlight(@PathVariable("id") int id) {
         return flightRepository.findById(id).get();
     }
-
-    // @RequestMapping(value = "/flights", method = RequestMethod.GET)
-    // public List<Flight> findFlights() {
-    // return flightRepository.findAll();
-    // }
 
     @RequestMapping(value = "/reservations", method = RequestMethod.POST)
     @Transactional
