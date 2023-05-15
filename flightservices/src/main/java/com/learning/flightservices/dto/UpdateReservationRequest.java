@@ -3,7 +3,7 @@ package com.learning.flightservices.dto;
 public class UpdateReservationRequest {
 
     private int id;
-    private boolean checkIn;
+    private boolean checkedIn;
     private int numberOfBags;
 
     public int getId() {
@@ -14,12 +14,12 @@ public class UpdateReservationRequest {
         this.id = id;
     }
 
-    public boolean isCheckIn() {
-        return checkIn;
+    public boolean isCheckedIn() {
+        return checkedIn;
     }
 
-    public void setCheckIn(boolean checkIn) {
-        this.checkIn = checkIn;
+    public void setCheckedIn(boolean checkedIn) {
+        this.checkedIn = checkedIn;
     }
 
     public int getNumberOfBags() {

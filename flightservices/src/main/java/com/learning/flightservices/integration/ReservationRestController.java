@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -53,7 +54,8 @@ public class ReservationRestController {
 
     @RequestMapping(value = "/reservations", method = RequestMethod.POST)
     @Transactional
-    public Reservation saveReservation(CreateReservationRequest request) {
+    public Reservation saveReservation(@RequestBody CreateReservationRequest request) {
+        System.out.println("Save Reservation" + request.getFlightId());
         Flight flight = flightRepository.findById(request.getFlightId()).get();
 
         Passenger passenger = new Passenger();
@@ -61,14 +63,15 @@ public class ReservationRestController {
         passenger.setLastName(request.getPassengerLastName());
         passenger.setMiddleName(request.getPassengerMiddleName());
         passenger.setEmail(request.getPassengerEmail());
-        passenger.setFirstName(request.getPassengerPhone());
+        passenger.setPhone(request.getPassengerPhone());
 
         Passenger savedPassenger = passengerRepository.save(passenger);
 
         Reservation reservation = new Reservation();
+        reservation.setCheckedIn(false);
+        reservation.setNumberOfBags(3);
         reservation.setFlight(flight);
         reservation.setPassenger(savedPassenger);
-        reservation.setCheckIn(false);
 
         return reservationRepository.save(reservation);
     }
@@ -79,10 +82,10 @@ public class ReservationRestController {
     }
 
     @RequestMapping(value = "/reservations", method = RequestMethod.PUT)
-    public Reservation updateReservation(UpdateReservationRequest request) {
+    public Reservation updateReservation(@RequestBody UpdateReservationRequest request) {
         Reservation reservation = reservationRepository.findById(request.getId()).get();
         reservation.setNumberOfBags(request.getNumberOfBags());
-        reservation.setCheckIn(request.isCheckIn());
+        reservation.setCheckedIn(request.isCheckedIn());
 
         return reservationRepository.save(reservation);
     }
