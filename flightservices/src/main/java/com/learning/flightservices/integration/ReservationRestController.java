@@ -41,6 +41,11 @@ public class ReservationRestController {
         return flightRepository.findFlights(from, to, departureDate);
     }
 
+    @RequestMapping("/flights/{id}")
+    public Flight findFlight(@PathVariable("id") int id) {
+        return flightRepository.findById(id).get();
+    }
+
     // @RequestMapping(value = "/flights", method = RequestMethod.GET)
     // public List<Flight> findFlights() {
     // return flightRepository.findAll();
