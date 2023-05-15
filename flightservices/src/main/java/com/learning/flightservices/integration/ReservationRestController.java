@@ -37,9 +37,14 @@ public class ReservationRestController {
     public List<Flight> findFlights(
             @RequestParam("from") String from,
             @RequestParam("to") String to,
-            @RequestParam("departureCity") @DateTimeFormat(pattern = "MM-dd-yyyy") Date departureCity) {
-        return flightRepository.findFlights(from, to, departureCity);
+            @RequestParam("departureDate") @DateTimeFormat(pattern = "MM-dd-yyyy") Date departureDate) {
+        return flightRepository.findFlights(from, to, departureDate);
     }
+
+    // @RequestMapping(value = "/flights", method = RequestMethod.GET)
+    // public List<Flight> findFlights() {
+    // return flightRepository.findAll();
+    // }
 
     @RequestMapping(value = "/reservations", method = RequestMethod.POST)
     @Transactional
