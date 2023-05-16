@@ -13,7 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<FindFlight />} />
         <Route
-          path="/displayFlights/:from/:to/:departureCity"
+          path="/displayFlights/:from/:to/:departureDate"
           element={<DisplayFlights />}
         />
         <Route path="/passengerDetails" element={<PassengerDetails />} />
