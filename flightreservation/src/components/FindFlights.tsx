@@ -9,7 +9,7 @@ function FindFlight() {
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    navigate("/displayFlights/" + to + "/" + from + "/" + departureDate);
+    navigate("/displayFlights/" + from + "/" + to + "/" + departureDate);
   };
 
   return (
