@@ -12,7 +12,10 @@ function App() {
       <h1>Flight Reservation App</h1>
       <Routes>
         <Route path="/" element={<FindFlight />} />
-        <Route path="/displayFlights" element={<DisplayFlights />} />
+        <Route
+          path="/displayFlights/:from/:to/:departureCity"
+          element={<DisplayFlights />}
+        />
         <Route path="/passengerDetails" element={<PassengerDetails />} />
         <Route path="/confirmResorvation" element={<ConfirmReservation />} />
       </Routes>

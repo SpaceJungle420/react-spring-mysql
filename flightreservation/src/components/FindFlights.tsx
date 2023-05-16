@@ -1,9 +1,16 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function FindFlight() {
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
   const [departureDate, setDepartureDate] = useState("");
+  const navigate = useNavigate();
+
+  const handleSubmit = (event: any) => {
+    event.preventDefault();
+    navigate("/displayFlights/" + to + "/" + from + "/" + departureDate);
+  };
 
   return (
     <div>
@@ -23,7 +30,7 @@ function FindFlight() {
           name="departureDare"
           onChange={(e) => setDepartureDate(e.target.value)}
         />
-        <button>Search</button>
+        <button onClick={handleSubmit}>Search</button>
       </form>
     </div>
   );
