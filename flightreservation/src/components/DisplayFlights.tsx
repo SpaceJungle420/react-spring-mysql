@@ -20,15 +20,6 @@ function DisplayFlights() {
       )
       .then((res) => {
         setFlightData(res.data);
-        console.log(
-          "http://localhost:8080/flightservices/flights?from=" +
-            from +
-            "&to=" +
-            to +
-            "&departureDate=" +
-            departureDate
-        );
-        console.log(res.data);
         setIsLoading(false);
       });
   }, [count]);
