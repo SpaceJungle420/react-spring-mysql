@@ -1,9 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 
 function FindFlight() {
+  const [from, setFrom] = useState("");
+  const [to, setTo] = useState("");
+  const [departureDate, setDepartureDate] = useState("");
+
   return (
     <div>
       <h1>Find Flight</h1>
+      <form>
+        From:{" "}
+        <input
+          type="text"
+          name="from"
+          onChange={(e) => setFrom(e.target.value)}
+        />
+        To:{" "}
+        <input type="text" name="to" onChange={(e) => setTo(e.target.value)} />
+        Departure Date:{" "}
+        <input
+          type="text"
+          name="departureDare"
+          onChange={(e) => setDepartureDate(e.target.value)}
+        />
+        <button>Search</button>
+      </form>
     </div>
   );
 }
