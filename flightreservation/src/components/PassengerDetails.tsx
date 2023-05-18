@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 function PassengerDetails() {
   const { flightId } = useParams();
@@ -23,6 +23,8 @@ function PassengerDetails() {
   const [expiryDate, setExpiryDate] = useState("");
   const [securityCode, setSecurityCode] = useState("");
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     axios
       .get("http://localhost:8080/flightservices/flights/" + flightId)
@@ -31,6 +33,28 @@ function PassengerDetails() {
         setIsLoading(false);
       });
   }, [count]);
+
+  const handleSubmit = (event: any) => {
+    event.prevDefault();
+    const data = {
+      flightId: flightId,
+      passengerFirstName: passengerFirstName,
+      passengerLastName: passengerLastName,
+      passengerMiddleName: passengerMiddleName,
+      passengerEmail: passengerEmail,
+      passengerPhone: passengerPhone,
+      cardNumber: cardNumber,
+      expiryDate: expiryDate,
+      securityCode: securityCode,
+    };
+
+    axios
+      .post("http://localhost:8080/flightservices/reservations", data)
+      .then((rest) => {
+        navigate("/confirmReservation/" + rest.data.id);
+      });
+  };
+
   return (
     <div>
       <h2>Confirm Reservation:</h2>
@@ -101,6 +125,7 @@ function PassengerDetails() {
           name="securityCode"
           onChange={(e) => setSecurityCode(e.target.value)}
         />
+        <button onClick={handleSubmit}>Confirm</button>
       </form>
     </div>
   );
