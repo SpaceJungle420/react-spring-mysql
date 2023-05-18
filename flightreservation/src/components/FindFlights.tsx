@@ -16,15 +16,15 @@ function FindFlight() {
     <div>
       <h1>Find Flight</h1>
       <form>
-        From:{" "}
+        From:
         <input
           type="text"
           name="from"
           onChange={(e) => setFrom(e.target.value)}
         />
-        To:{" "}
+        To:
         <input type="text" name="to" onChange={(e) => setTo(e.target.value)} />
-        Departure Date:{" "}
+        Departure Date:
         <input
           type="text"
           name="departureDare"
