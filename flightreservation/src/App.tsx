@@ -16,7 +16,10 @@ function App() {
           path="/displayFlights/:from/:to/:departureDate"
           element={<DisplayFlights />}
         />
-        <Route path="/passengerDetails" element={<PassengerDetails />} />
+        <Route
+          path="/passengerDetails/:flightId"
+          element={<PassengerDetails />}
+        />
         <Route path="/confirmResorvation" element={<ConfirmReservation />} />
       </Routes>
     </div>
