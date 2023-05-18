@@ -35,7 +35,7 @@ function PassengerDetails() {
   }, [count]);
 
   const handleSubmit = (event: any) => {
-    event.prevDefault();
+    event.preventDefault();
     const data = {
       flightId: flightId,
       passengerFirstName: passengerFirstName,

@@ -21,7 +21,7 @@ function App() {
           element={<PassengerDetails />}
         />
         <Route
-          path="/confirmResorvation/:reservationId"
+          path="/confirmReservation/:reservationId"
           element={<ConfirmReservation />}
         />
       </Routes>
