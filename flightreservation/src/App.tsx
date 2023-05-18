@@ -20,7 +20,10 @@ function App() {
           path="/passengerDetails/:flightId"
           element={<PassengerDetails />}
         />
-        <Route path="/confirmResorvation" element={<ConfirmReservation />} />
+        <Route
+          path="/confirmResorvation/:reservationId"
+          element={<ConfirmReservation />}
+        />
       </Routes>
     </div>
   );
